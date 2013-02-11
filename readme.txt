@@ -32,7 +32,7 @@ It does. Select the 'Show on home' option of tags you would like to show on your
 
 = 2.0.0 =
 * Tag cloud now works on latest posts homepage
-* Cha
+* Replaced deprecated method
 * Small meta information changes.
 
 = 1.0.1 =
