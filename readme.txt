@@ -30,7 +30,7 @@ It does. Select the 'Show on home' option of tags you would like to show on your
 
 == Changelog ==
 
-= 2.0.0 =
+= 1.1.0 =
 * Tag cloud now works on latest posts homepage.
 * Replaced deprecated method.
 * Small meta information changes.
