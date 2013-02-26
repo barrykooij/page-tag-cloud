@@ -4,7 +4,7 @@ Donate link:
 Tags: Page tags, tags, tag cloud
 Requires at least: 3.0
 Tested up to: 3.5.1
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,6 +29,10 @@ It does. Select the 'Show on home' option of tags you would like to show on your
 
 
 == Changelog ==
+
+= 1.1.1 =
+* Small meta information changes.
+* Added WordPress 3.5.1 support.
 
 = 1.1.0 =
 * Tag cloud now works on latest posts homepage.

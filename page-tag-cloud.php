@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Page Tag Cloud
-Plugin URI: http://www.barrykooij.nl/page-tag-cloud
+Plugin URI: http://www.barrykooij.com/page-tag-cloud/
 Description: Add tags to pages and display them in a tag cloud widget.
-Version: 1.1.0
+Version: 1.1.1
 Author: Barry Kooij
-Author URI: http://www.barrykooij.nl/
+Author URI: http://www.barrykooij.com/
 */
 
 require_once('widget.php');
