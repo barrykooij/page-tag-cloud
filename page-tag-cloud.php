@@ -53,7 +53,7 @@ class PageTagCloud
 		<tr class="form-field">
 			<th scope="row" valign="top"><label for="show_on_home"><?php _e( 'Show on home' ); ?></label></th>
 			<td>
-        <input type="checkbox" name="show_on_home" id="show_on_home" value="1"<?php echo ( (in_array($term->term_id, $home_tags)) ? 'checked="checked"' : '' ); ?> />
+        <input type="checkbox" name="show_on_home" id="show_on_home" value="1"<?php echo ( ( in_array( $term->term_id, $home_tags ) ) ? 'checked="checked"' : '' ); ?> />
 				<p class="description"><?php _e( 'Display tag on home page which displays my latest posts.' ); ?></p>
 			</td>
 		</tr>
@@ -65,12 +65,12 @@ class PageTagCloud
 
 		$home_tags 	= get_option( 'ptc_home_tags' , array() );
 
-		if( isset( $_POST['show_on_home'] ) ) {
+		if( isset( $_POST[ 'show_on_home' ] ) ) {
 			if( !in_array( $term_id, $home_tags ) ) {
 				$home_tags[] = $term_id;
 			}
 		}else {
-			unset($home_tags[$term_id]);
+			unset( $home_tags[ $term_id ] );
 		}
 
 		update_option( 'ptc_home_tags' , $home_tags );
