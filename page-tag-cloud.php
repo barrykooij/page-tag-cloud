@@ -78,5 +78,4 @@ class PageTagCloud
 
 }
 
-new PageTagCloud();
-?>
+add_action( 'plugins_loaded', create_function( '', 'new PageTagCloud();' ) );
