@@ -12,11 +12,7 @@ require_once('widget.php');
 
 class PageTagCloud
 {
-
-	const OPTION_VERSION_CODE 	= 'ptc_version_code';
-	const OPTION_UPGRADE_TITLE 	= 'ptc_upgrade_title';
-	const VERSION_CODE 					= 2;
-  
+	
   public function __construct()
   {
     add_action( 'widgets_init', array( $this, 'register_widget' ) );
