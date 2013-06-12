@@ -22,30 +22,11 @@ class PageTagCloud
     add_action( 'widgets_init', array( $this, 'register_widget' ) );
     add_action( 'init', array( $this, 'register_taxonomy' ) );
 
-		add_action( 'admin_init', array( $this, 'check_upgrade' ) );
-
 		add_action( 'page_tags_add_form_fields', 	array( $this, 'add_homepage_tag_field' 	), 10, 2 );
 		add_action( 'page_tags_edit_form_fields', array( $this, 'edit_homepage_tag_field' ), 10, 2 );
 
 		add_action( 'edited_page_tags', array( $this, 'save_taxonomy_custom_meta' ), 10, 2 );
 		add_action( 'create_page_tags', array( $this, 'save_taxonomy_custom_meta' ), 10, 2 );
-	}
-
-	public function check_upgrade()
-	{
-		$db_version = get_option( self::OPTION_VERSION_CODE,  1 );
-
-		// Check if it's an upgrade
-		if( self::VERSION_CODE > $db_version ) {
-
-			// Set upgrade vars
-			if( $db_version == 1 ) {
-				add_option( self::OPTION_UPGRADE_TITLE,  true );
-			}
-
-			// Set new version
-			update_option( self::OPTION_VERSION_CODE, self::VERSION_CODE );
-		}
 	}
 
   public function register_widget()
