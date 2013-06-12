@@ -37,7 +37,12 @@ class PTCWidget extends WP_Widget
     $this->generate_tag_cloud( $args, $instance );
     echo $args[ 'after_widget' ];
   }
-  
+
+	public function map_terms( $o )
+	{
+		return $o->term_id;
+	}
+
   private function generate_tag_cloud( $args = array( 'before_title' => '<h3>', 'after_title' => '</h3>' ), $instance )
   {
     global $post;
@@ -60,7 +65,7 @@ class PTCWidget extends WP_Widget
 
     if( count( $tags ) == 0 ){ return; }
     echo $args[ 'before_title' ] . $title . $args[ 'after_title' ]."\n";
-    wp_tag_cloud( array( 'taxonomy' => 'page_tags', 'hide_empty' => false, 'include' => implode( ",", array_map( function( $o ) { return $o->term_id; }, $tags ) ) ) );
+    wp_tag_cloud( array( 'taxonomy' => 'page_tags', 'hide_empty' => false, 'include' => implode( ",", array_map( array( $this, 'map_terms' ), $tags ) ) ) );
   }
   
 }

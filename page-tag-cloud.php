@@ -12,7 +12,7 @@ require_once('widget.php');
 
 class PageTagCloud
 {
-	
+
   public function __construct()
   {
     add_action( 'widgets_init', array( $this, 'register_widget' ) );
