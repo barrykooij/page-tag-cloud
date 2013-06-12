@@ -12,9 +12,22 @@ class PTCWidget extends WP_Widget
 
   public function __construct()
   {
+		$this->upgrade_fix_title();
     $widget_ops = array( 'description' => __( 'Displays page tags in a tagcloud' ) );
     parent::__construct( 'ptc_widget', __( 'Page Tag Cloud' ), $widget_ops);
   }
+
+	private function upgrade_fix_title()
+	{
+		// We only check this in admin
+		if( is_admin() ) {
+			$upgrade_title = get_option( self::OPTION_UPGRADE_TITLE,  1 );
+			if( $upgrade_title == 1 ) {
+				$old_settings = get_option($this->id);
+				$this->update( $old_settings, $old_settings );
+			}
+		}
+	}
   
   public function form( $instance )
   {
