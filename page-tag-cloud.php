@@ -3,7 +3,7 @@
 Plugin Name: Page Tag Cloud
 Plugin URI: http://www.barrykooij.com/page-tag-cloud/
 Description: Add tags to pages and display them in a tag cloud widget.
-Version: 1.1.1
+Version: 2.0.0
 Author: Barry Kooij
 Author URI: http://www.barrykooij.com/
 */

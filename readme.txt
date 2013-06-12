@@ -1,10 +1,10 @@
 === Page Tag Cloud ===
 Contributors: barrykooij
-Donate link: 
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=M4U4VXGQ5HC3A
 Tags: Page tags, tags, tag cloud
 Requires at least: 3.0
 Tested up to: 3.5.1
-Stable tag: 1.1.1
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,6 +29,10 @@ It does. Select the 'Show on home' option of tags you would like to show on your
 
 
 == Changelog ==
+
+= 2.0.0 =
+* Refactor of widget class. IMPORTANT: Please note that you need to set the widget titles manually again after upgrading, sorry for the inconvenience.
+* Replaced anonymous function to support PHP version < 5.3.0
 
 = 1.1.1 =
 * Small meta information changes.
