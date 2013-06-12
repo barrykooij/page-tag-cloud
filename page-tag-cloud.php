@@ -40,7 +40,7 @@ class PageTagCloud
 
 			// Set upgrade vars
 			if( $db_version == 1 ) {
-				add_option( self::OPTION_UPGRADE_TITLE,  'true' );
+				add_option( self::OPTION_UPGRADE_TITLE,  true );
 			}
 
 			// Set new version

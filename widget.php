@@ -1,8 +1,6 @@
 <?php
 /**
 * The Widget
- *
- * TODO: FIX ON UPGRADE TO RESTORE OLD TITLE (WP_OPTION)
 */
 
 class PTCWidget extends WP_Widget
@@ -21,10 +19,11 @@ class PTCWidget extends WP_Widget
 	{
 		// We only check this in admin
 		if( is_admin() ) {
-			$upgrade_title = get_option( self::OPTION_UPGRADE_TITLE,  1 );
-			if( $upgrade_title == 1 ) {
+			$upgrade_title = get_option( PageTagCloud::OPTION_UPGRADE_TITLE,  false );
+			if( $upgrade_title == true ) {
 				$old_settings = get_option($this->id);
 				$this->update( $old_settings, $old_settings );
+				delete_option( PageTagCloud::OPTION_UPGRADE_TITLE );
 			}
 		}
 	}
