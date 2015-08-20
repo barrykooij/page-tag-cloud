@@ -28,6 +28,9 @@ require_once( 'widget.php' );
 
 class PageTagCloud {
 
+	/**
+	 * __construct
+	 */
 	public function __construct() {
 		add_action( 'widgets_init', array( $this, 'register_widget' ) );
 		add_action( 'init', array( $this, 'register_taxonomy' ) );
@@ -39,10 +42,16 @@ class PageTagCloud {
 		add_action( 'create_page_tags', array( $this, 'save_taxonomy_custom_meta' ), 10, 2 );
 	}
 
+	/**
+	 * Register widget
+	 */
 	public function register_widget() {
 		register_widget( 'PTCWidget' );
 	}
 
+	/**
+	 * Register taxonomy
+	 */
 	public function register_taxonomy() {
 		register_taxonomy( 'page_tags', 'page', array(
 			'hierarchical' => false,
@@ -53,6 +62,9 @@ class PageTagCloud {
 		) );
 	}
 
+	/**
+	 * Add settings checkbox to tag field
+	 */
 	public function add_homepage_tag_field() {
 		?>
 		<div class="form-field">
@@ -65,6 +77,11 @@ class PageTagCloud {
 		<?php
 	}
 
+	/**
+	 * Add settings checkbox to tag field
+	 *
+	 * @param object $term
+	 */
 	public function edit_homepage_tag_field( $term ) {
 		$home_tags = get_option( 'ptc_home_tags', array() );
 		?>
@@ -80,6 +97,11 @@ class PageTagCloud {
 		<?php
 	}
 
+	/**
+	 * Save taxonomy meta
+	 *
+	 * @param int $term_id
+	 */
 	public function save_taxonomy_custom_meta( $term_id ) {
 
 		$home_tags = get_option( 'ptc_home_tags', array() );
@@ -101,4 +123,5 @@ function __page_tag_cloud_main() {
 	new PageTagCloud();
 }
 
+// init plugin
 add_action( 'plugins_loaded', '__page_tag_cloud_main', 20 );
