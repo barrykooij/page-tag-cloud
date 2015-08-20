@@ -7,11 +7,21 @@ class PTCWidget extends WP_Widget {
 
 	private $default_title = 'Tag Cloud';
 
+	/**
+	 * __construct
+	 */
 	public function __construct() {
 		$widget_ops = array( 'description' => __( 'Displays page tags in a tagcloud' ) );
 		parent::__construct( 'ptc_widget', __( 'Page Tag Cloud' ), $widget_ops );
 	}
 
+	/**
+	 * Widget form
+	 *
+	 * @param array $instance
+	 *
+	 * @return void
+	 */
 	public function form( $instance ) {
 		$title = $this->default_title;
 		if ( isset( $instance['title'] ) ) {
@@ -21,6 +31,14 @@ class PTCWidget extends WP_Widget {
 		echo "<input type='text' name='" . $this->get_field_name( 'title' ) . "' id='" . $this->get_field_id( 'title' ) . "' value='" . esc_attr( $title ) . "' style='width:100%;' /></p>\n";
 	}
 
+	/**
+	 * Update action
+	 *
+	 * @param array $new_instance
+	 * @param array $old_instance
+	 *
+	 * @return array
+	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance          = array();
 		$instance['title'] = $new_instance['title'];
@@ -28,23 +46,41 @@ class PTCWidget extends WP_Widget {
 		return $instance;
 	}
 
+	/**
+	 * Widget output
+	 *
+	 * @param array $args
+	 * @param array $instance
+	 */
 	public function widget( $args, $instance ) {
 		echo $args['before_widget'];
 		$this->generate_tag_cloud( $args, $instance );
 		echo $args['after_widget'];
 	}
 
+	/**
+	 * Map terms
+	 *
+	 * @param $o
+	 *
+	 * @return int
+	 */
 	public function map_terms( $o ) {
 		return $o->term_id;
 	}
 
-	private function generate_tag_cloud(
-		$args = array(
-			'before_title' => '<h3>',
-			'after_title'  => '</h3>'
-		), $instance
-	) {
+	/**
+	 * Generate the actual tag cloud
+	 *
+	 * @param $args
+	 * @param $instance
+	 */
+	private function generate_tag_cloud( $args, $instance ) {
 		global $post;
+
+		// set defaults
+		$args = wp_parse_args( $args, array( 'before_title' => '<h3>', 'after_title' => '</h3>' ) );
+
 		wp_reset_query();
 
 		$title = $this->default_title;
@@ -52,7 +88,6 @@ class PTCWidget extends WP_Widget {
 			$title = $instance['title'];
 		}
 
-		//$settings = get_option($this->id);
 
 		$tags = array();
 		if ( is_front_page() && get_option( 'show_on_front' ) == 'posts' ) {
@@ -78,5 +113,3 @@ class PTCWidget extends WP_Widget {
 	}
 
 }
-
-?>
