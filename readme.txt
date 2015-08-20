@@ -1,18 +1,18 @@
 === Page Tag Cloud ===
-Contributors: barrykooij
+Contributors: never5, barrykooij
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=M4U4VXGQ5HC3A
 Tags: Page tags, tags, tag cloud
-Requires at least: 3.0
-Tested up to: 3.5.1
-Stable tag: 2.0.0
+Requires at least: 3.8
+Tested up to: 4.3
+Stable tag: 2.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Add tags to pages and display them in a tagcloud widget.
+This plugin allows you to add tags to pages and display them in a tag cloud widget.
 
 == Description ==
 
-Add tags to pages and display them in a tagcloud widget.
+With this plugin you can add tags to pages like you can to posts by default. The plugin also adds a new widget to display the page tags.
 
 == Installation ==
 
@@ -29,6 +29,9 @@ It does. Select the 'Show on home' option of tags you would like to show on your
 
 
 == Changelog ==
+
+= 2.0.1 =
+* Code cleanup.
 
 = 2.0.0 =
 * Refactor of widget class. IMPORTANT: Please note that you need to set the widget titles manually again after upgrading, sorry for the inconvenience.
